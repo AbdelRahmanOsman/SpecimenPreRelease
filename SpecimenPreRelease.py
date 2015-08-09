@@ -16,30 +16,31 @@ def numericalErrorChecking(Input,Max,Min):
 #The error checking function for the names
 def nameErrorChecking(Input):
     splitWord = list(Input) #splits the word and stores it in an array
+    print(splitWord)
     index = 0
-    while if not splitWord[index].isspace:
+    while not any(letter in splitWord for letter in [' '] ):
         index = index + 1
     indexSecondName = index + 1
     print(splitWord[indexSecondName])
-    if Input.replace(' ','').isalpha() and splitWord[indexSecondName].isupper() and splitWord[0].isupper():   
+    if Input.replace(' ','').isalpha() and splitWord[indexSecondName].isupper() and splitWord[0].isupper():
         print("valid")
         Validated = Input
     else:
         while True:
             print("Invalid, please retype the students name.")
             Input = input()
-            splitWord = Input.split() #splits the word and stores it in an array
+            splitWord = list(Input) #splits the word and stores it in an array
             index = 0
-            while not splitWord[index].isspace:
+            while not any(letter in splitWord for letter in [' '] ):
                 index = index + 1
-
             indexSecondName = index + 1
-            if Input.replace(' ','').isalpha() and splitWord[indexSecondName].isupper() and splitWord[0].isupper()():
+            print(splitWord[indexSecondName])
+            if Input.replace(' ','').isalpha() and splitWord[indexSecondName].isupper() and splitWord[0].isupper():
                 print("valid")
                 Validated = Input
                 break
     return Validated
-     
+
 #declaring the two-dimensional arrays for the students information
 names = []
 test1 = []
@@ -51,7 +52,7 @@ topScoresIndex = [] #this holds the index values of the top total scorers, which
 
 #this is a variable that allows the program to work for diferent numbers of students, the
 #specimen pre-release specifies 30 students however for testing purposes this number can be brought down
-NumberStudents = 30 
+NumberStudents = 30
 
 studentNumber = 1 #this is not set to 0 as the question, "What is the name of student 0?", does not make sense
 while studentNumber <=NumberStudents:
@@ -110,7 +111,7 @@ while index < NumberStudents:
         topScoresIndex.append(index)
     index = index + 1
 
-    
+
 print("The following people have acheived the highest score of", max(total))
 
 index=0
